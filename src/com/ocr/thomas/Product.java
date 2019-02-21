@@ -5,8 +5,14 @@ public class Product {
     String description;
     double price;
 
-    public void look(){
+    public Product(String name, String description, double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 
+    public void look(){
+        System.out.println(String.format(name + " : " + price + "%n" + description));
     }
 
     public void buy(Bill bill, Integer quantity){
