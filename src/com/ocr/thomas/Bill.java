@@ -36,7 +36,7 @@ public class Bill {
         writer.writerLine(customer.getFullname());
         writer.writerLine(customer.getAddress());
         writer.writerLine("");
-        writer.writerLine("Mode de livraison : " + delivery.getinfo());
+        writer.writerLine("Mode de livraison : " + delivery.getInfo());
         writer.writerLine("");
         writer.writerLine("Produits :");
         writer.writerLine("------------------------------------------------");

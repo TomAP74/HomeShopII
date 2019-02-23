@@ -6,19 +6,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BillTest {
     private String output;
-    private Writer writerMock = new Writer(){
+    private Writer writerMock = new Writer() {
         @Override
-        public void start(){
+        public void start() {
             output = "";
         }
 
         @Override
-        public void writeLine(String line){
+        public void writerLine(String line) {
             output += line + "%n";
         }
 
         @Override
-        public void stop(){
+        public void stop() {
         }
     };
 
@@ -52,3 +52,4 @@ public class BillTest {
         Bill bill = new Bill(customer, lowCostRelayDelivery);
         assertThrows(NoProductInBillException.class, () -> bill.generate(writerMock));
     }
+}

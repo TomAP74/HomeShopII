@@ -25,7 +25,7 @@ public class Main {
                 }
 
                 @Override
-                public void writeLine(String line) {
+                public void writerLine(String line) {
                     System.out.println(line);
                 }
 
