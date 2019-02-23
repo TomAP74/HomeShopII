@@ -25,7 +25,9 @@ public class Bill {
         return products;
     }
 
-    public void generate(Writer writerMock) {
+    public void generate(Writer writer) {
+        if (products.isEmpty())
+            throw new NoProductInBillException();
         writer.start();
         writer.writerLine("HomeShop compagnie");
         writer.writerLine("1 Place Charles de Gaulle, 75008 Paris");
