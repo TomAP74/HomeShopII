@@ -15,7 +15,23 @@ public class Main {
         bill.addProduct(cafe, 1);
         bill.addProduct(tv, 1);
         bill.addProduct(fridge, 1);
+        
+        bill.generate(new Writer() {
+            @Override
+            public void start() {
 
-        bill.generate(new FileWriter("facture_leblanc"));
+            }
+
+            @Override
+            public void writeLine(String line) {
+                System.out.println(line);
+            }
+
+            @Override
+            public void stop() {
+
+            }
+        });
+
     }
 }
