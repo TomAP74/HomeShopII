@@ -24,4 +24,41 @@ public class Bill {
     public Map<Product, Integer> getProducts() {
         return products;
     }
+
+    public void generate(Writer writerMock) {
+        writer.start();
+        writer.writerLine("HomeShop compagnie");
+        writer.writerLine("1 Place Charles de Gaulle, 75008 Paris");
+        writer.writerLine("");
+        writer.writerLine("Facture à l'attention de :");
+        writer.writerLine(customer.getFullname());
+        writer.writerLine(customer.getAddress());
+        writer.writerLine("");
+        writer.writerLine("Mode de livraison : " + delivery.getinfo());
+        writer.writerLine("");
+        writer.writerLine("Produits :");
+        writer.writerLine("------------------------------------------------");
+        for (Map.Entry<Product, Integer> entry : products.entrySet()){
+            Product product = entry.getKey();
+            Integer quantity = entry.getValue();
+            writer.writerLine(product.getName() + " - " + product.getPrice() + " - " + quantity + " unité(s)");
+            writer.writerLine(product.getDescription());
+            writer.writerLine("");
+        }
+        writer.writerLine("Livraison : " + delivery.getPrice());
+        writer.writerLine("-------------------------------------------------");
+        writer.writerLine("Total :" + this.getTotal());
+        writer.stop();
+    }
+    
+    
+    public double getTotal(){
+        double total = delivery.getPrice();
+        for (Map.Entry<Product, Integer> entry : products.entrySet()){
+            Product product = entry.getKey();
+            Integer quantity = entry.getValue();
+            total += product.getPrice() * quantity;
+        }
+        return total;
+    }
 }
